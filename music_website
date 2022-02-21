@@ -1,31 +1,30 @@
 
 
- # Созадаем таблицу исполнителя
-CREATE TABLE IF NOT EXISTS singers (Id serial primary key, 
-First_name varchar(40) not null, Last_name varchar(50)); 
+ 
+
+--Создание таблицы band
+create table if not exists band (
+Id serial primary key, 
+First_name varchar(40) not null,
+genre_id integer not null
+);
+
+-- создание таблицы album и связывание с таблицей band
+CREATE TABLE if not exists album (Id serial primary key, 
+Name_sing text not null, realise_year integer,
+band_id integer references band(id)
+);
+
+--Создание таблицы music_track и связывание с таблицей album
+CREATE TABLE if not exists music_track (Id serial primary key, 
+Name_sing text not null, Time_play integer not null,
+album_id integer references album(id)
+);  
 
 
-
-# Создаем таблицу альбомов
-CREATE TABLE IF NOT EXISTS album (Id serial primary key, 
-Name_album varchar(40) not null, Year date);
-
-
-# Создаем таблицу музыкальных треков
-CREATE TABLE music_track (Id serial primary key, 
-Name_sing text not null, Time_play timestamp);  
-
-
-# Создание таблцы музыкальный сайт
-CREATE TABLE IF NOT EXISTS music_website (Id serial primary key, 
-List_singers_id  varchar(40) unique not null, List_album_singers_id varchar(50) unique not null, 
-List_track_id  text unique not null);
-
-# Cоздание внешнего ключа singers и music_website
-ALTER TABLE singers ADD singers_id BIGINT REFERENCES music_website (list_singers);
-
-# Создание внешнего ключа album c music_website
-ALTER TABLE album ADD album_id BIGINT REFERENCES music_website (list_album);   
-
-# Cоздание внешнего ключа music_track b music_website
-ALTER TABLE music_track ADD music_track_id BIGINT REFERENCES music_website (list_track; 
+-- Создание таблицы music_janr и связывание с таблицей band
+create table if not exists music_djanr(
+id serial primary key,
+Name_djanr text not null,
+id_jenre integer references jenre(id)
+);

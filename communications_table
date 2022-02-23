@@ -1,0 +1,66 @@
+
+# Создание table Artist.
+	create table if not exists Artist (
+	id serial primary key,
+	Name_artist varchar(40)
+	);
+	
+
+# Создание table janre.
+
+create table if not exists janre (
+id serial primary key,
+Name_janre varchar(50) not null
+);
+
+# Создание table Artist_janre  и связка с table Artist and Janre.
+
+create table if not exists Artist_janre (
+id serial primary key,
+id_janre integer references janre(id),
+id_arist integer references artist(id)
+);
+
+# Создание table list_album.
+
+create table if not exists List_album (
+id serial primary key,
+Name_album_list varchar(50) not null,
+Realise_date date not null
+);
+
+# Создание table Artist_album и свзка с table Artist, List_album.
+
+create table if not exists Artist_album (
+id serial primary key,
+artist_id integer not null references Artist(id),
+album_id integer not null references List_album(id)
+);
+
+
+# Создание table  List_audio и связка table Artist_album.
+
+create table if not exists List_audio (
+id serial primary key,
+Name_audio varchar(50) not null,
+Time_play numeric not null,
+List_album_id integer not null references List_album(id)
+);
+
+
+# Создание table Collection.
+
+create table if not exists Collection (
+id serial primary key,
+Name_collection varchar(60),
+Realise_year integer
+);
+
+# Создание table Collection_List audio_List album и связка table List_audio, List_album.
+
+create table if not exists Collection_List_audio_List_album (
+id serial primary key,
+Collection_id integer not null references Collection(id),
+List_album_id integer not null references List_album(id),
+List_audio_id integer not null references List_audio(id)
+);

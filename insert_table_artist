@@ -1,0 +1,105 @@
+
+--Создание таблицы artist
+
+create table if not exists artist (
+	id INTEGER primary key,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50)
+    
+);
+
+
+
+insert into artist (id, first_name,  values (1, 'Basta', 'Nagano');
+insert into artist (id, first_name,  values (2, 'Timoty', 'Timur');
+insert into artist (id, first_name,  values (3, 'Jigan', 'Denis');
+insert into artist (id, first_name,  values (4, 'Bilan', 'Dima');
+insert into artist (id, first_name,  values (5, 'Zivert', 'Anna');
+insert into artist (id, first_name,  values (6, 'Gagarina', 'Polina');
+insert into artist (id, first_name,  values (7, 'Glykoza', 'Natalya');
+insert into artist (id, first_name,  values (8, 'Mashi', 'Ulia');
+
+
+
+
+--таблица janre
+
+create table if not exists artist (
+	id INTEGER primary key,
+	first_name VARCHAR(50),
+	);
+
+insert into janre (id, first_name,  values (1, 'rok');
+insert into janre (id, first_name,  values (2, 'trans');
+insert into janre (id, first_name,  values (3, 'Pops');
+insert into janre (id, first_name,  values (4, 'rap');
+insert into janre (id, first_name,  values (5, 'hip_hop');
+insert into janre (id, first_name,  values (6, 'shanson');
+
+
+--Создание таблицы list_album
+create table if not exists list_album (
+id_serial primary key,
+name varchar(40),
+realise_data integer    
+);
+
+
+insert into list_album (id, name, realise, values (1, 'album_name_1', '1990-12-15');
+insert into list_album (id, name, realise, values (2, 'album_name_2', '2010-10-01');
+insert into list_album (id, name, realise, values (3, 'album_name_3', '2012-08-16');
+insert into list_album (id, name, realise, values (4, 'album_name_4', '2015-07-20');
+insert into list_album (id, name, realise, values (5, 'album_name_5', '2018-06-14');
+insert into list_album (id, name, realise, values (6, 'album_name_6', '2019-03-10');
+insert into list_album (id, name, realise, values (7, 'album_name_7', '2020-05-13');
+insert into list_album (id, name, realise, values (8, 'album_name_8', '1986-01-13');
+
+
+
+
+--Создание таблицы list_audio
+
+create table if not exists list_audio (
+id_serial primary key not null,
+name_audio varchar(50) not null,
+time_play integer    
+);
+
+
+
+insert into list_audio (id, name_audio, time_play) values (1, 'track_1', 3.05);
+insert into list_audio (id, name_audio, time_play) values (2, 'track_2', 3.10);
+insert into list_audio (id, name_audio, time_play) values (3, 'track_3', 4.15);
+insert into list_audio (id, name_audio, time_play) values (4, 'track_4', 3.15);
+insert into list_audio (id, name_audio, time_play) values (5, 'track_5', 4.25);
+insert into list_audio (id, name_audio, time_play) values (6, 'track_6', 5.05);
+insert into list_audio (id, name_audio, time_play) values (7, 'track_7', 2.50);
+insert into list_audio (id, name_audio, time_play) values (8, 'track_8', 4.00);
+insert into list_audio (id, name_audio, time_play) values (9, 'track_9', 5.50);
+insert into list_audio (id, name_audio, time_play) values (10, 'track_10', 2.30);
+insert into list_audio (id, name_audio, time_play) values (11, 'track_11', 1.55);
+insert into list_audio (id, name_audio, time_play) values (12, 'track_12', 4.40);
+insert into list_audio (id, name_audio, time_play) values (13, 'track_13', 5.20);
+insert into list_audio (id, name_audio, time_play) values (14, 'track_14', 2.45);
+insert into list_audio (id, name_audio, time_play) values (15, 'my_14', 2.45),
+insert into list_audio (id, name_audio, time_play) values (16, 'my', 1.45);
+
+
+
+--Создание таблицы collection
+
+create table if not exists collection (
+id_serial primary key not null,
+name varchar(50) not null,
+realise_date integer    
+);
+
+
+insert into collection (id, name, realise_date) values (1, 'collection_1', '2020-12-15');
+insert into collection (id, name, realise_date) values (2, 'collection_2', '2019-01-15');
+insert into collection (id, name, realise_date) values (3, 'collection_3', '2019-02-20');
+insert into collection (id, name, realise_date) values (4, 'collection_4', '2020-11-15');
+insert into collection (id, name, realise_date) values (5, 'collection_5', '2021-07-15');
+insert into collection (id, name, realise_date) values (6, 'collection_6', '2002-08-19');
+insert into collection (id, name, realise_date) values (7, 'collection_7', '2005-09-18');
+insert into collection (id, name, realise_date) values (8, 'collection_8', '2001-05-20');

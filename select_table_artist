@@ -22,12 +22,12 @@ Engine(postgresql://postgres:***@localhost:5432/netology2021)
  'list_album',
  'List_audio',
  'collections',
- 'collections_album_track']
+ 'collections_album_audio']
 
 # Название и год выхода альбомов, вышедших в 2018 году
 
 select_1 = connection.execute('''SELECT  name, releasedate FROM album
-WHERE releasedate BETWEEN '2018-01-01' AND '2018-12-31';
+WHERE release_date BETWEEN '2018-01-01' AND '2018-12-31';
 ''').fetchall()
 pprint(select_1)
 
@@ -46,7 +46,7 @@ pprint(select_2)
 
 # Название треков, продолжительность которых не менее 3,5 минуты
 
-select_3 = connection.execute('''SELECT  name FROM track
+select_3 = connection.execute('''SELECT  name FROM list_audio
 WHERE time_play >= 03.50;
 ''').fetchall()
 pprint(select_3)
@@ -80,28 +80,22 @@ WHERE name NOT LIKE '%% %%';
 ''').fetchall()
 pprint(select_5)
 
-[('artist_1',),
- ('artist_2',),
- ('artist_3',),
- ('artist_4',),
- ('artist_5',),
- ('artist_6',),
- ('artist_7',),
- ('artist_8',),
- ('artist_9',),
- ('artist_10',),
- ('artist_11',),
- ('artist_12',),
- ('artist_13',),
- ('artist_14',),
- ('artist_15',)]
+[(''Basta',),
+ ('Timoty',),
+ ('Jigan',),
+ ('Bilan',),
+ ('Zivert',),
+ ('Gagarina',),
+ ('Glykoza',),
+ ('Mashi',),
+
 
 
 
 
 # Название треков, которые содержат слово "мой"/"my"
 
-select_6 = connection.execute('''SELECT name FROM track
+select_6 = connection.execute('''SELECT name FROM list_audio
 WHERE name LIKE '%%my%%';
 ''').fetchall()
 pprint(select_6)

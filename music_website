@@ -1,30 +1,30 @@
 
-
+--Cоздание таблицы music_janre
+create table if not exists music_janre (
+	    id serial primary key,
+	    name varchar(60) not null unique
+);
  
 
 --Создание таблицы band
 create table if not exists band (
-Id serial primary key, 
-First_name varchar(40) not null,
-genre_id integer not null
+    Id serial primary key, 
+    First_name varchar(40) not null,
+    genre_id integer not null
+    music_janre_id integer references music_janre(id)
 );
 
--- создание таблицы album и связывание с таблицей band
+-- Cоздание таблицы album и связывание с таблицей band
 CREATE TABLE if not exists album (Id serial primary key, 
-Name_sing text not null, realise_year integer,
-band_id integer references band(id)
+      Name_sing text not null, realise_year integer,
+      band_id integer references band(id)
 );
 
 --Создание таблицы music_track и связывание с таблицей album
 CREATE TABLE if not exists music_track (Id serial primary key, 
-Name_sing text not null, Time_play integer not null,
-album_id integer references album(id)
+       Name_sing text not null, Time_play integer not null,
+       album_id integer references album(id)
 );  
 
 
--- Создание таблицы music_janr и связывание с таблицей band
-create table if not exists music_djanr(
-id serial primary key,
-Name_djanr text not null,
-id_jenre integer references jenre(id)
-);
+

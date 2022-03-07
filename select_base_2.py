@@ -8,70 +8,6 @@ import psycopg2
 from pprint import pprint
 
 
-#
-# engine = sqlalchemy.create_engine('postgresql://postgres:terzot13@localhost:5432/netology2021')
-# pprint(engine)
-#
-# connection = engine.connect()
-# print(connection)
-# pprint(engine.table_names())
-#
-# Engine('postgresql://postgres:***@localhost:5432/netology2021')
-# sqlalchemy.engine.base.Connection object at 0x000001562D6D33D0
-# ['genre',
-#  'artist_genre',
-#  'artist',
-#  'album_artist',
-#  'album',
-#  'track',
-#  'collections',
-#  'collections_album_track']
-#
-#     # Название и год выхода альбомов, вышедших в 2018 году
-#
-# select_1 = connection.execute('''SELECT  name, releasedate FROM album
-# WHERE releasedate BETWEEN '2018-01-01' AND '2018-12-31';
-# ''').fetchall()
-# pprint(select_1)
-#
-# [('album_name_5', datetime.date(2018, 6, 14))]
-#
-#     # Название и продолжительность самого длительного трека
-#
-# select_2 = connection.execute('''SELECT   name, tracklength FROM track
-# ORDER BY tracklength DESC;
-# ''').fetchone()
-# pprint(select_2)
-#
-# ('track_9', Decimal('5.50'))
-#
-#     # Название треков, продолжительность которых не менее 3,5 минуты
-#
-# select_3 = connection.execute('''SELECT  name FROM track
-# WHERE tracklength >= 03.50;
-# ''').fetchall()
-# pprint(select_3)
-#
-#
-# # Названия сборников, вышедших в период с 2018 по 2020 год включительно
-# select_4 = connection.execute('''SELECT name FROM collections
-# WHERE release_year BETWEEN '2018-01-01' AND '2020-12-31';
-# ''').fetchall()
-# pprint(select_4)
-#
-#
-# # Исполнители, чье имя состоит из 1 слова
-# select_5 = connection.execute('''SELECT name FROM artist
-# WHERE name NOT LIKE '%% %%';
-# ''').fetchall()
-# pprint(select_5)
-#
-#
-# # Название треков, которые содержат слово "мой"/"my"
-# select_6 = connection.execute('''SELECT name FROM track
-# WHERE name LIKE '%%my%%';
-# ''').fetchall()
-# pprint(select_6)
 
  # 1 количество исполнителей в каждом жанре;
 
@@ -141,7 +77,7 @@ select_2_8 = ('''SELECT name_album FROM album
 JOIN track ON track.name_track = album.name_album;''').fetchall()
     select_2_8 = ('''SELECT name_album FROM album WHERE name_MIN('track');
 ''').fetchall()
-    print(select_2_8)
+    pprint(select_2_8)
 
 
 
